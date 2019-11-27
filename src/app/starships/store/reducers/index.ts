@@ -8,9 +8,14 @@ export interface StarshipsState {
 }
 
 export interface State extends fromRoot.State {
-  ships: StarshipsState;
+  starships: StarshipsState;
 }
 
 export const reducers: ActionReducerMap<StarshipsState> = {
   ships: fromShips.reducer
 };
+
+export const selectStarshipsState = createFeatureSelector<StarshipsState>('starships');
+
+export const selectShips = createSelector(selectStarshipsState, (state) => state.ships);
+export const getAllShips = createSelector(selectShips, fromShips.getAllShips);

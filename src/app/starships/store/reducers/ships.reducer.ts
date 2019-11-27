@@ -20,3 +20,5 @@ const shipsReducer = createReducer(
 export function reducer(state: State | undefined, action: Action) {
   return shipsReducer(state, action);
 }
+
+export const getAllShips = (state: State) => state.allShips;
