@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../store/reducers';
+import * as fromStore from '../store';
 import * as fromRoot from 'src/app/store/reducers/index';
 import { Observable } from 'rxjs';
 import { loadShips } from '../store/actions/ships.actions';
@@ -12,8 +12,7 @@ import { loadShips } from '../store/actions/ships.actions';
 })
 export class ShipListComponent implements OnInit {
 
-  // starships$: Observable<StarShip[]>;
-  starships$: Observable<any[]>;
+  starships$: Observable<string[]>;
   user$: Observable<string>;
 
   constructor(private store: Store<fromStore.State>) { }
@@ -24,5 +23,4 @@ export class ShipListComponent implements OnInit {
 
     this.store.dispatch(loadShips());
   }
-
 }

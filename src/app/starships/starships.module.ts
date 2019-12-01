@@ -13,6 +13,7 @@ import { ShipListComponent } from './ship-list/ship-list.component';
     CommonModule,
     StoreModule.forFeature(fromShips.shipsFeatureKey, fromShips.reducer),
     EffectsModule.forFeature([ShipsEffects])
-  ]
+  ],
+  exports: [ShipListComponent]
 })
 export class StarshipsModule { }
