@@ -21,8 +21,6 @@ export class ShipListComponent implements OnInit {
     this.starships$ = this.store.select(fromStore.getAllShips);
     this.user$ = this.store.select(fromRoot.getFriendlyName);
 
-    this.store.select(fromRoot.getRouterInfo).subscribe(res => console.log(res));
-
     this.store.dispatch(loadShips());
   }
 }

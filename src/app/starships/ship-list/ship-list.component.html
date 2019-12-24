@@ -10,7 +10,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let ship of starships$ | async">
-      <td style="width: 30%">{{ ship.name }}</td>
+      <td style="width: 30%"><a [routerLink]="['/detail', ship.id]">{{ ship.name }}</a></td>
       <td style="width: 60%">{{ ship.model }}</td>
     </tr>
   </tbody>

@@ -14,7 +14,12 @@ export class ShipsEffects {
       concatMap(() =>
         this.http.get('https://swapi.co/api/starships')
           .pipe(
-            map((response: { results: any }) => ShipsActions.setShips(response.results))
+            map((response: { results: any }) => {
+              response.results.forEach(element => {
+                element.id = new Date().getTime();
+              });
+              return ShipsActions.setShips(response.results);
+            })
           )
       )
     );
