@@ -1,0 +1,16 @@
+<div class="backdrop">
+  <div class="modal">
+    <div>
+      <input style="border: solid 1px" id="name" [(ngModel)]="shipName">
+      <label style="margin-left: 10px" for="name">Name</label>
+    </div>
+    <div style="margin-top: 20px">
+      <input style="border: solid 1px" id="model" [(ngModel)]="shipModel">
+      <label style="margin-left: 10px" for="model">Model</label>
+    </div>
+    <div style="margin-top: 20px; display: flex; justify-content: space-around;">
+      <button (click)="saveButtonHadlerFactory()"><b>Save</b></button>
+      <button (click)="closeWindowHandler()">Cancel</button>
+    </div>
+  </div>
+</div>

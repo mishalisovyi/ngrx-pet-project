@@ -16,3 +16,9 @@ export const getCurrentShip = createSelector(getAllShips, fromRoot.getRouterInfo
   }
   return null;
 });
+
+export const getShipById = createSelector(getAllShips, (ships, props) => {
+  const ship = ships.find(item => item.id === props.shipId);
+  console.log(ship);
+  return ship ? ship : null;
+});

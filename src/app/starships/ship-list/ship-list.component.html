@@ -1,6 +1,7 @@
 <h1>{{ user$ | async }}</h1>
 <hr />
 <h2>First 10 Starships from API</h2>
+<button (click)="loadShips()" style="position: absolute; right: 11px">Reload starships</button>
 <table>
   <thead>
     <tr>
@@ -11,7 +12,19 @@
   <tbody>
     <tr *ngFor="let ship of starships$ | async">
       <td style="width: 30%"><a [routerLink]="['/detail', ship.id]">{{ ship.name }}</a></td>
-      <td style="width: 60%">{{ ship.model }}</td>
+      <td style="width: 50%">{{ ship.model }}</td>
+      <td style="width: 20%">
+        <button (click)="editShip(ship.id)">Edit</button>
+      </td>
+      <td style="width: 20%">
+        <button (click)="deleteShip(ship.id)">Delete</button>
+      </td>
     </tr>
   </tbody>
 </table>
+<div style="display: flex; justify-content: center; margin-top: 20px;">
+  <button (click)="addShip()">Add Ship</button>
+</div>
+
+<app-ship-modal *ngIf="showWindow" [shipId]="shipIdForEdit" (closeWindow)="handleCloseWindow()">
+</app-ship-modal>

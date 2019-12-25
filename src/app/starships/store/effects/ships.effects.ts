@@ -15,8 +15,8 @@ export class ShipsEffects {
         this.http.get('https://swapi.co/api/starships')
           .pipe(
             map((response: { results: any }) => {
-              response.results.forEach(element => {
-                element.id = new Date().getTime();
+              response.results.forEach((element, index) => {
+                element.id = index;
               });
               return ShipsActions.setShips(response.results);
             })

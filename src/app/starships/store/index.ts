@@ -16,3 +16,4 @@ export const reducers: ActionReducerMap<StarshipsState> = {
 
 export const getAllShips = fromShipsSelectors.getAllShips;
 export const getCurrentShip = fromShipsSelectors.getCurrentShip;
+export const getShipById = fromShipsSelectors.getShipById;
